@@ -1,193 +1,388 @@
 
+<!
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
 <title>ELYSIAN</title>
+
 <style>
-* { box-sizing: border-box; }
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  padding: 28px 18px;
+  padding: 0;
+}
+
+body {
   min-height: 100vh;
+  padding: 25px 18px;
   background: #080808;
-  color: #ededed;
+  color: #e8e8e8;
   font-family: Arial, sans-serif;
 }
+
 .container {
-  max-width: 480px;
+  max-width: 470px;
   margin: auto;
 }
+
 header {
   text-align: center;
-  padding: 35px 0 28px;
+  padding: 55px 0 35px;
 }
-h1 {
-  font-size: 36px;
-  letter-spacing: 7px;
-  margin: 0;
-  background: linear-gradient(120deg,#777,#fff,#888);
+
+.logo {
+  font-size: 37px;
+  letter-spacing: 9px;
+  font-weight: 400;
+  background: linear-gradient(120deg, #777, #fff, #777);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
 .subtitle {
-  color: #777;
-  font-size: 10px;
-  letter-spacing: 4px;
   margin-top: 13px;
+  color: #777;
+  font-size: 9px;
+  letter-spacing: 5px;
 }
+
 .line {
   height: 1px;
-  background: linear-gradient(90deg,transparent,#777,transparent);
-  margin-bottom: 25px;
+  background: linear-gradient(90deg, transparent, #666, transparent);
+  margin-bottom: 28px;
 }
+
 .menu {
   display: grid;
-  gap: 13px;
+  gap: 12px;
 }
+
 .item {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 19px;
-  border: 1px solid #303030;
-  border-radius: 12px;
-  background: linear-gradient(120deg,#191919,#101010);
+  padding: 20px;
+  gap: 16px;
+  background: #121212;
+  border: 1px solid #292929;
+  border-radius: 10px;
   cursor: pointer;
-  transition: .3s;
-  animation: appear .6s ease both;
+  transition: .3s ease;
+  animation: appear .5s ease both;
 }
+
 .item:hover {
-  border-color: #aaa;
+  border-color: #999;
+  background: #1b1b1b;
   transform: translateY(-3px);
-  background: #222;
 }
+
 .number {
-  color: #888;
-  font-size: 13px;
+  color: #777;
+  font-size: 12px;
 }
-.info { flex: 1; }
+
+.info {
+  flex: 1;
+}
+
 .name {
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 2px;
 }
+
 .desc {
   color: #777;
-  font-size: 11px;
-  margin-top: 6px;
+  font-size: 10px;
+  margin-top: 7px;
 }
-.arrow { color: #999; font-size: 20px; }
+
+.arrow {
+  color: #888;
+  font-size: 21px;
+}
+
 .page {
   display: none;
-  animation: appear .35s ease;
-  margin-top: 25px;
+  margin-top: 20px;
   padding: 22px;
-  border: 1px solid #333;
-  border-radius: 12px;
-  background: #141414;
+  background: #121212;
+  border: 1px solid #303030;
+  border-radius: 10px;
+  animation: appear .35s ease;
 }
-.page.active { display: block; }
+
+.page.active {
+  display: block;
+}
+
 .page h2 {
-  font-size: 18px;
+  margin: 27px 0;
+  font-size: 17px;
+  font-weight: 400;
   letter-spacing: 3px;
 }
-.page p { color: #aaa; line-height: 1.7; }
-.back {
-  background: none;
-  border: 1px solid #555;
-  color: #ddd;
-  border-radius: 7px;
-  padding: 10px 16px;
-  cursor: pointer;
+
+.label {
+  color: #777;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin: 23px 0 10px;
 }
+
+.entry {
+  padding: 14px 0;
+  border-bottom: 1px solid #292929;
+  color: #c5c5c5;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.entry span {
+  color: #777;
+  margin-right: 9px;
+}
+
+.back {
+  padding: 9px 14px;
+  background: transparent;
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: #ccc;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.back:hover {
+  border-color: #ddd;
+  color: white;
+}
+
+.link {
+  display: inline-block;
+  color: #ddd;
+  text-decoration: none;
+  border-bottom: 1px solid #777;
+  padding-bottom: 3px;
+  transition: .3s;
+}
+
+.link:hover {
+  color: white;
+  border-color: white;
+}
+
+.note {
+  color: #777;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 22px;
+}
+
 footer {
   text-align: center;
+  margin-top: 50px;
+  padding-bottom: 20px;
   color: #555;
-  font-size: 10px;
-  letter-spacing: 3px;
-  margin-top: 45px;
+  font-size: 9px;
+  letter-spacing: 4px;
 }
+
 @keyframes appear {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
 </head>
+
 <body>
 <div class="container">
+
 <header>
-<h1>ELYSIAN</h1>
-<div class="subtitle">OFFICIAL COMMUNITY</div>
+  <div class="logo">ELYSIAN</div>
+  <div class="subtitle">OFFICIAL COMMUNITY</div>
 </header>
+
 <div class="line"></div>
 
+<!-- ГЛАВНОЕ МЕНЮ -->
 <div class="menu" id="menu">
+
   <div class="item" onclick="openPage('rules')">
     <span class="number">01</span>
-    <div class="info"><div class="name">ПРАВИЛА</div><div class="desc">Правила сообщества</div></div>
+    <div class="info">
+      <div class="name">ПРАВИЛА</div>
+      <div class="desc">Основные положения</div>
+    </div>
     <span class="arrow">›</span>
   </div>
+
   <div class="item" onclick="openPage('cleaning')">
     <span class="number">02</span>
-    <div class="info"><div class="name">ЧИСТКА</div><div class="desc">Нормы и ресты</div></div>
+    <div class="info">
+      <div class="name">ЧИСТКА</div>
+      <div class="desc">Нормы и ресты</div>
+    </div>
     <span class="arrow">›</span>
   </div>
+
   <div class="item" onclick="openPage('admins')">
     <span class="number">03</span>
-    <div class="info"><div class="name">АДМИНИСТРАЦИЯ</div><div class="desc">Состав администрации</div></div>
+    <div class="info">
+      <div class="name">АДМИНИСТРАЦИЯ</div>
+      <div class="desc">Состав команды</div>
+    </div>
     <span class="arrow">›</span>
   </div>
+
   <div class="item" onclick="openPage('tiktok')">
     <span class="number">04</span>
-    <div class="info"><div class="name">TIKTOK</div><div class="desc">Аккаунт сообщества</div></div>
+    <div class="info">
+      <div class="name">TIKTOK</div>
+      <div class="desc">Наш аккаунт</div>
+    </div>
     <span class="arrow">›</span>
   </div>
-  <div class="item" onclick="openPage('anonymous')">
+
+  <a class="item" href="https://t.me/poslaniya?start=ooCcJhA0"
+     target="_blank" rel="noopener"
+     style="text-decoration:none;color:inherit;">
     <span class="number">05</span>
-    <div class="info"><div class="name">АНОНИМНЫЕ СООБЩЕНИЯ</div><div class="desc">Связь с сообществом</div></div>
+    <div class="info">
+      <div class="name">АНОНИМНЫЕ СООБЩЕНИЯ</div>
+      <div class="desc">Отправить сообщение</div>
+    </div>
     <span class="arrow">›</span>
+  </a>
+
+</div>
+
+<!-- ПРАВИЛА -->
+<div class="page" id="rules">
+  <button class="back" onclick="home()">← НАЗАД</button>
+  <h2>ПРАВИЛА</h2>
+
+  <div class="label">ОСНОВНЫЕ ПОЛОЖЕНИЯ</div>
+
+  <div class="entry"><span>01.</span> Уважайте участников и администрацию.</div>
+  <div class="entry"><span>02.</span> Оскорбления, травля и провокации запрещены.</div>
+  <div class="entry"><span>03.</span> Политика, религия и национальные конфликты не обсуждаются.</div>
+  <div class="entry"><span>04.</span> Личные конфликты решайте вне общего чата.</div>
+  <div class="entry"><span>05.</span> Спам и навязчивая реклама запрещены.</div>
+  <div class="entry"><span>06.</span> Не публикуйте чужую личную информацию.</div>
+  <div class="entry"><span>07.</span> Соблюдайте решения администрации.</div>
+
+  <p class="note">
+    Нарушение правил может повлечь предупреждение, мут или бан.
+  </p>
+</div>
+
+<!-- ЧИСТКА -->
+<div class="page" id="cleaning">
+  <button class="back" onclick="home()">← НАЗАД</button>
+  <h2>ЧИСТКА</h2>
+
+  <div class="label">НОРМА</div>
+  <div class="entry">40/280</div>
+
+  <div class="label">РАСПИСАНИЕ</div>
+  <div class="entry">Каждое воскресенье в 19:00 по МСК.</div>
+
+  <div class="label">НАРУШЕНИЯ</div>
+  <div class="entry">3 преда — автоматический бан.</div>
+  <div class="entry">Неактивность 3 дня — кик.</div>
+
+  <div class="label">РЕСТ</div>
+  <div class="entry">Рест можно брать только у владельца, предварительно уточнив все детали и указав причину.</div>
+  <div class="entry">Максимальная продолжительность — 2 недели.</div>
+  <div class="entry">Норма для рестников отсутствует.</div>
+</div>
+
+<!-- АДМИНИСТРАЦИЯ -->
+<div class="page" id="admins">
+  <button class="back" onclick="home()">← НАЗАД</button>
+  <h2>АДМИНИСТРАЦИЯ</h2>
+
+  <div class="label">ВЛАДЕЛЕЦ</div>
+  <div class="entry">
+    <a class="link" href="https://t.me/vezsxm" target="_blank">@vezsxm</a>
+  </div>
+
+  <div class="label">АДМИНИСТРАТОРЫ ПО НЬЮ</div>
+  <div class="entry">
+    <a class="link" href="https://t.me/shissad" target="_blank">@shissad</a>
+  </div>
+  <div class="entry">
+    <a class="link" href="https://t.me/Amu1nva" target="_blank">@Amu1nva</a>
+  </div>
+
+  <div class="label">МОНТАЖЁР</div>
+  <div class="entry">
+    <a class="link" href="https://t.me/Amg212MERSALI" target="_blank">
+      Amg212MERSALI
+    </a>
   </div>
 </div>
 
-<div class="page" id="rules">
-<button class="back" onclick="home()">← Назад</button>
-<h2>ПРАВИЛА</h2>
-<p>Раздел правил сообщества.</p>
-</div>
-<div class="page" id="cleaning">
-<button class="back" onclick="home()">← Назад</button>
-<h2>ЧИСТКА</h2>
-<p>Раздел чистки сообщества.</p>
-</div>
-<div class="page" id="admins">
-<button class="back" onclick="home()">← Назад</button>
-<h2>АДМИНИСТРАЦИЯ</h2>
-<p>Список администрации будет добавлен позже.</p>
-</div>
+<!-- TIKTOK -->
 <div class="page" id="tiktok">
-<button class="back" onclick="home()">← Назад</button>
-<h2>TIKTOK</h2>
-<p>Здесь будет ссылка на аккаунт сообщества.</p>
-</div>
-<div class="page" id="anonymous">
-<button class="back" onclick="home()">← Назад</button>
-<h2>АНОНИМНЫЕ СООБЩЕНИЯ</h2>
-<p>Раздел анонимных сообщений. Для отправки понадобится подключить Telegram-бота.</p>
+  <button class="back" onclick="home()">← НАЗАД</button>
+  <h2>TIKTOK</h2>
+
+  <div class="label">ОФИЦИАЛЬНЫЙ АККАУНТ</div>
+  <div class="entry">
+    <a class="link" href="https://www.tiktok.com/@elysian.812"
+       target="_blank" rel="noopener">@elysian.812</a>
+  </div>
 </div>
 
 <footer>ELYSIAN • 2026</footer>
+
 </div>
+
 <script>
 function openPage(id) {
   document.getElementById('menu').style.display = 'none';
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
   document.getElementById(id).classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
+
 function home() {
   document.getElementById('menu').style.display = 'grid';
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 </script>
+
 </body>
 </html>
