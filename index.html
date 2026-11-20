@@ -1,4 +1,5 @@
 
+<!
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,65 +17,117 @@
 body {
     min-height: 100vh;
     background: #080808;
-    color: #eeeeee;
+    color: #e8e8e8;
     font-family: Arial, sans-serif;
-    padding: 25px 18px;
+    padding: 0 20px 35px;
 }
 
 .container {
+    width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding-top: 35px;
+}
+
+.header {
+    text-align: center;
+    padding: 105px 0 65px;
 }
 
 .logo {
-    text-align: center;
-    font-size: 35px;
+    font-size: clamp(39px, 10vw, 58px);
+    font-weight: 400;
     letter-spacing: 9px;
-    font-weight: 300;
-    color: #e5e5e5;
-    margin-bottom: 9px;
+    color: #ededed;
 }
 
 .subtitle {
-    text-align: center;
+    margin-top: 35px;
+    font-size: 13px;
+    letter-spacing: 6px;
     color: #777;
-    font-size: 10px;
-    letter-spacing: 5px;
-    margin-bottom: 45px;
+}
+
+.line {
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #555,
+        transparent
+    );
+    margin-bottom: 55px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 13px;
+    gap: 28px;
 }
 
-.item {
+.menu-card {
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: 19px 20px;
-    background: linear-gradient(110deg, #171717, #0e0e0e);
-    border: 1px solid #333;
-    border-radius: 12px;
-    color: #dedede;
+    min-height: 145px;
+    padding: 25px 28px;
+    border: 1px solid #343434;
+    border-radius: 26px;
+    background: linear-gradient(135deg, #191919, #101010);
+    color: #e5e5e5;
     text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-align: left;
     cursor: pointer;
     transition: 0.3s ease;
-    animation: appear 0.6s ease both;
+    text-align: left;
 }
 
-.item:hover {
+.menu-card:active {
     background: #242424;
-    border-color: #999;
-    transform: translateY(-2px);
+    border-color: #777;
+    transform: scale(0.985);
+}
+
+.menu-number {
+    color: #858585;
+    font-size: 25px;
+    min-width: 65px;
+    font-weight: 300;
+}
+
+.menu-info {
+    flex: 1;
+}
+
+.menu-title {
+    font-size: 21px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.menu-description {
+    color: #858585;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.arrow {
+    color: #aaa;
+    font-size: 32px;
+    font-weight: 200;
+    margin-left: 12px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 100px;
+    color: #555;
+    font-size: 13px;
+    letter-spacing: 5px;
 }
 
 .page {
     display: none;
-    animation: appear 0.4s ease;
+    animation: fade 0.35s ease;
 }
 
 .page.active {
@@ -85,24 +138,24 @@ body {
     background: none;
     border: none;
     color: #999;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 2px;
+    padding: 15px 0;
     margin-bottom: 30px;
     cursor: pointer;
 }
 
-h2 {
-    font-size: 21px;
+.page-title {
+    font-size: 25px;
     font-weight: 400;
     letter-spacing: 4px;
-    margin-bottom: 25px;
-    color: #e5e5e5;
+    margin-bottom: 30px;
 }
 
 .content {
     color: #bcbcbc;
-    font-size: 14px;
-    line-height: 1.9;
+    font-size: 15px;
+    line-height: 2;
     white-space: pre-line;
 }
 
@@ -112,43 +165,55 @@ h2 {
 
 .link {
     display: block;
-    margin-top: 14px;
-    padding: 15px;
-    border: 1px solid #444;
-    border-radius: 9px;
-    color: #e5e5e5;
     text-decoration: none;
+    color: #e5e5e5;
+    background: linear-gradient(135deg, #191919, #101010);
+    border: 1px solid #393939;
+    border-radius: 15px;
+    padding: 18px 20px;
+    margin-top: 15px;
     font-size: 13px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     transition: 0.3s;
 }
 
-.link:hover {
-    background: #242424;
-    border-color: #aaa;
+.link:active {
+    background: #292929;
 }
 
-.number {
-    color: #888;
-    margin-right: 8px;
+.section-space {
+    margin-top: 28px;
 }
 
-.footer {
-    text-align: center;
-    color: #555;
-    font-size: 9px;
-    letter-spacing: 4px;
-    margin-top: 55px;
-}
-
-@keyframes appear {
+@keyframes fade {
     from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 380px) {
+    .menu-card {
+        padding: 20px 17px;
+        min-height: 125px;
+    }
+
+    .menu-number {
+        min-width: 55px;
+        font-size: 22px;
+    }
+
+    .menu-title {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+
+    .menu-description {
+        font-size: 14px;
     }
 }
 </style>
@@ -159,28 +224,79 @@ h2 {
 <div class="container">
 
 <div id="home">
-    <div class="logo">ELYSIAN</div>
-    <div class="subtitle">WELCOME TO OUR WORLD</div>
+
+    <header class="header">
+        <div class="logo">ELYSIAN</div>
+        <div class="subtitle">OFFICIAL COMMUNITY</div>
+    </header>
+
+    <div class="line"></div>
 
     <div class="menu">
-        <button class="item" onclick="openPage('rules')">01 — ПРАВИЛА</button>
-        <button class="item" onclick="openPage('cleaning')">02 — ЧИСТКА</button>
-        <button class="item" onclick="openPage('admins')">03 — АДМИНИСТРАЦИЯ</button>
-        <button class="item" onclick="openPage('join')">04 — КАК ПОПАСТЬ В ЧАТ</button>
 
-        <a class="item" href="https://www.tiktok.com/@elysian.812" target="_blank">
-            05 — TIKTOK
+        <button class="menu-card" onclick="openPage('rules')">
+            <span class="menu-number">01</span>
+            <span class="menu-info">
+                <span class="menu-title">ПРАВИЛА</span>
+                <span class="menu-description">Правила сообщества</span>
+            </span>
+            <span class="arrow">›</span>
+        </button>
+
+        <button class="menu-card" onclick="openPage('cleaning')">
+            <span class="menu-number">02</span>
+            <span class="menu-info">
+                <span class="menu-title">ЧИСТКА</span>
+                <span class="menu-description">Нормы и ресты</span>
+            </span>
+            <span class="arrow">›</span>
+        </button>
+
+        <button class="menu-card" onclick="openPage('admins')">
+            <span class="menu-number">03</span>
+            <span class="menu-info">
+                <span class="menu-title">АДМИНИСТРАЦИЯ</span>
+                <span class="menu-description">Состав администрации</span>
+            </span>
+            <span class="arrow">›</span>
+        </button>
+
+        <button class="menu-card" onclick="openPage('join')">
+            <span class="menu-number">04</span>
+            <span class="menu-info">
+                <span class="menu-title">КАК ПОПАСТЬ В ЧАТ</span>
+                <span class="menu-description">Вступление в Elysian</span>
+            </span>
+            <span class="arrow">›</span>
+        </button>
+
+        <a class="menu-card" href="https://www.tiktok.com/@elysian.812" target="_blank">
+            <span class="menu-number">05</span>
+            <span class="menu-info">
+                <span class="menu-title">TIKTOK</span>
+                <span class="menu-description">Аккаунт сообщества</span>
+            </span>
+            <span class="arrow">›</span>
         </a>
 
-        <a class="item" href="https://t.me/poslaniya?start=ooCcJhA0" target="_blank">
-            06 — АНОНИМНЫЕ СООБЩЕНИЯ
+        <a class="menu-card" href="https://t.me/poslaniya?start=ooCcJhA0" target="_blank">
+            <span class="menu-number">06</span>
+            <span class="menu-info">
+                <span class="menu-title">АНОНИМНЫЕ СООБЩЕНИЯ</span>
+                <span class="menu-description">Связь с сообществом</span>
+            </span>
+            <span class="arrow">›</span>
         </a>
+
     </div>
+
+    <div class="footer">ELYSIAN • 2026</div>
 </div>
 
 <div id="rules" class="page">
     <button class="back" onclick="home()">← НАЗАД</button>
-    <h2>ПРАВИЛА</h2>
+    <h2 class="page-title">ПРАВИЛА</h2>
+
     <div class="content">
 1. Уважайте участников и администрацию.
 
@@ -203,7 +319,8 @@ h2 {
 
 <div id="cleaning" class="page">
     <button class="back" onclick="home()">← НАЗАД</button>
-    <h2>ЧИСТКА</h2>
+    <h2 class="page-title">ЧИСТКА</h2>
+
     <div class="content">
 В первую очередь — <strong>норма 40/280.</strong>
 
@@ -223,58 +340,53 @@ h2 {
 
 <div id="admins" class="page">
     <button class="back" onclick="home()">← НАЗАД</button>
-    <h2>АДМИНИСТРАЦИЯ</h2>
+    <h2 class="page-title">АДМИНИСТРАЦИЯ</h2>
 
-    <div class="content">
-Владелец проекта:
-    </div>
+    <div class="content">Владелец проекта:</div>
     <a class="link" href="https://t.me/vezsxm" target="_blank">@vezsxm</a>
 
-    <div class="content" style="margin-top:25px;">
-Администраторы по нью:
-    </div>
+    <div class="content section-space">Администраторы по нью:</div>
     <a class="link" href="https://t.me/shissad" target="_blank">@shissad</a>
     <a class="link" href="https://t.me/Amu1nva" target="_blank">@Amu1nva</a>
 
-    <div class="content" style="margin-top:25px;">
-Монтаж:
-    </div>
+    <div class="content section-space">Монтаж:</div>
     <a class="link" href="https://t.me/Amg212MERSALI" target="_blank">Связаться</a>
 </div>
 
 <div id="join" class="page">
     <button class="back" onclick="home()">← НАЗАД</button>
-    <h2>КАК ПОПАСТЬ В ЧАТ</h2>
+    <h2 class="page-title">КАК ПОПАСТЬ В ЧАТ</h2>
 
     <div class="content">
 Чтобы стать частью ELYSIAN, выполни несколько шагов:
 
-<span class="number">01.</span> Подпишись на наш канал.
+01. Подпишись на наш канал.
     </div>
+
     <a class="link" href="https://t.me/+KULAQRUM3EIyYzQy" target="_blank">
         ПЕРЕЙТИ В КАНАЛ
     </a>
 
-    <div class="content" style="margin-top:22px;">
-<span class="number">02.</span> Ознакомься с правилами проекта.
+    <div class="content section-space">
+02. Ознакомься с правилами проекта.
 
-<span class="number">03.</span> Заполни анкету.
+03. Заполни анкету.
     </div>
+
     <a class="link" href="https://t.me/+EZNh2VZbB8YyNGIy" target="_blank">
         КАНАЛ С АНКЕТАМИ
     </a>
 
-    <div class="content" style="margin-top:22px;">
-<span class="number">04.</span> Отправь заполненную анкету администратору.
+    <div class="content section-space">
+04. Отправь заполненную анкету администратору.
 
-<span class="number">05.</span> Подай заявку на вступление в чат.
+05. Подай заявку на вступление в чат.
     </div>
+
     <a class="link" href="https://t.me/+gwOc3zCSSXMwMzky" target="_blank">
         ПЕРЕЙТИ В ЧАТ
     </a>
 </div>
-
-<div class="footer">ELYSIAN © 2026</div>
 
 </div>
 
@@ -287,7 +399,7 @@ function openPage(id) {
     });
 
     document.getElementById(id).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function home() {
@@ -296,7 +408,7 @@ function home() {
     });
 
     document.getElementById('home').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, behavior: 'smooth'});
 }
 </script>
 
