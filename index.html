@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELYSIAN</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 28px 18px;
+  min-height: 100vh;
+  background: #080808;
+  color: #ededed;
+  font-family: Arial, sans-serif;
+}
+.container {
+  max-width: 480px;
+  margin: auto;
+}
+header {
+  text-align: center;
+  padding: 35px 0 28px;
+}
+h1 {
+  font-size: 36px;
+  letter-spacing: 7px;
+  margin: 0;
+  background: linear-gradient(120deg,#777,#fff,#888);
+  background-clip: text;
+  color: transparent;
+}
+.subtitle {
+  color: #777;
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-top: 13px;
+}
+.line {
+  height: 1px;
+  background: linear-gradient(90deg,transparent,#777,transparent);
+  margin-bottom: 25px;
+}
+.menu {
+  display: grid;
+  gap: 13px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 19px;
+  border: 1px solid #303030;
+  border-radius: 12px;
+  background: linear-gradient(120deg,#191919,#101010);
+  cursor: pointer;
+  transition: .3s;
+  animation: appear .6s ease both;
+}
+.item:hover {
+  border-color: #aaa;
+  transform: translateY(-3px);
+  background: #222;
+}
+.number {
+  color: #888;
+  font-size: 13px;
+}
+.info { flex: 1; }
+.name {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+.desc {
+  color: #777;
+  font-size: 11px;
+  margin-top: 6px;
+}
+.arrow { color: #999; font-size: 20px; }
+.page {
+  display: none;
+  animation: appear .35s ease;
+  margin-top: 25px;
+  padding: 22px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  background: #141414;
+}
+.page.active { display: block; }
+.page h2 {
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+.page p { color: #aaa; line-height: 1.7; }
+.back {
+  background: none;
+  border: 1px solid #555;
+  color: #ddd;
+  border-radius: 7px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+footer {
+  text-align: center;
+  color: #555;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: 45px;
+}
+@keyframes appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>ELYSIAN</h1>
+<div class="subtitle">OFFICIAL COMMUNITY</div>
+</header>
+<div class="line"></div>
+
+<div class="menu" id="menu">
+  <div class="item" onclick="openPage('rules')">
+    <span class="number">01</span>
+    <div class="info"><div class="name">ПРАВИЛА</div><div class="desc">Правила сообщества</div></div>
+    <span class="arrow">›</span>
+  </div>
+  <div class="item" onclick="openPage('cleaning')">
+    <span class="number">02</span>
+    <div class="info"><div class="name">ЧИСТКА</div><div class="desc">Нормы и ресты</div></div>
+    <span class="arrow">›</span>
+  </div>
+  <div class="item" onclick="openPage('admins')">
+    <span class="number">03</span>
+    <div class="info"><div class="name">АДМИНИСТРАЦИЯ</div><div class="desc">Состав администрации</div></div>
+    <span class="arrow">›</span>
+  </div>
+  <div class="item" onclick="openPage('tiktok')">
+    <span class="number">04</span>
+    <div class="info"><div class="name">TIKTOK</div><div class="desc">Аккаунт сообщества</div></div>
+    <span class="arrow">›</span>
+  </div>
+  <div class="item" onclick="openPage('anonymous')">
+    <span class="number">05</span>
+    <div class="info"><div class="name">АНОНИМНЫЕ СООБЩЕНИЯ</div><div class="desc">Связь с сообществом</div></div>
+    <span class="arrow">›</span>
+  </div>
+</div>
+
+<div class="page" id="rules">
+<button class="back" onclick="home()">← Назад</button>
+<h2>ПРАВИЛА</h2>
+<p>Раздел правил сообщества.</p>
+</div>
+<div class="page" id="cleaning">
+<button class="back" onclick="home()">← Назад</button>
+<h2>ЧИСТКА</h2>
+<p>Раздел чистки сообщества.</p>
+</div>
+<div class="page" id="admins">
+<button class="back" onclick="home()">← Назад</button>
+<h2>АДМИНИСТРАЦИЯ</h2>
+<p>Список администрации будет добавлен позже.</p>
+</div>
+<div class="page" id="tiktok">
+<button class="back" onclick="home()">← Назад</button>
+<h2>TIKTOK</h2>
+<p>Здесь будет ссылка на аккаунт сообщества.</p>
+</div>
+<div class="page" id="anonymous">
+<button class="back" onclick="home()">← Назад</button>
+<h2>АНОНИМНЫЕ СООБЩЕНИЯ</h2>
+<p>Раздел анонимных сообщений. Для отправки понадобится подключить Telegram-бота.</p>
+</div>
+
+<footer>ELYSIAN • 2026</footer>
+</div>
+<script>
+function openPage(id) {
+  document.getElementById('menu').style.display = 'none';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function home() {
+  document.getElementById('menu').style.display = 'grid';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+}
+</script>
+</body>
+</html>
