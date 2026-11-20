@@ -1,5 +1,4 @@
 
-<!
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -72,6 +71,8 @@ header {
   cursor: pointer;
   transition: .3s ease;
   animation: appear .5s ease both;
+  text-decoration: none;
+  color: inherit;
 }
 
 .item:hover {
@@ -249,18 +250,16 @@ footer {
     <span class="arrow">›</span>
   </div>
 
-  <div class="item" onclick="openPage('tiktok')">
+  <a class="item" href="https://www.tiktok.com/@elysian.812" target="_blank" rel="noopener">
     <span class="number">04</span>
     <div class="info">
       <div class="name">TIKTOK</div>
       <div class="desc">Наш аккаунт</div>
     </div>
     <span class="arrow">›</span>
-  </div>
+  </a>
 
-  <a class="item" href="https://t.me/poslaniya?start=ooCcJhA0"
-     target="_blank" rel="noopener"
-     style="text-decoration:none;color:inherit;">
+  <a class="item" href="https://t.me/poslaniya?start=ooCcJhA0" target="_blank" rel="noopener">
     <span class="number">05</span>
     <div class="info">
       <div class="name">АНОНИМНЫЕ СООБЩЕНИЯ</div>
@@ -268,6 +267,15 @@ footer {
     </div>
     <span class="arrow">›</span>
   </a>
+
+  <div class="item" onclick="openPage('join')">
+    <span class="number">06</span>
+    <div class="info">
+      <div class="name">КАК ПОПАСТЬ В ЧАТ</div>
+      <div class="desc">Инструкция для вступления</div>
+    </div>
+    <span class="arrow">›</span>
+  </div>
 
 </div>
 
@@ -338,19 +346,50 @@ footer {
   </div>
 </div>
 
-<!-- TIKTOK -->
-<div class="page" id="tiktok">
+<!-- КАК ПОПАСТЬ В ЧАТ -->
+<div class="page" id="join">
   <button class="back" onclick="home()">← НАЗАД</button>
-  <h2>TIKTOK</h2>
+  <h2>КАК ПОПАСТЬ В ЧАТ</h2>
 
-  <div class="label">ОФИЦИАЛЬНЫЙ АККАУНТ</div>
+  <div class="label">ПОРЯДОК ВСТУПЛЕНИЯ</div>
+
   <div class="entry">
-    <a class="link" href="https://www.tiktok.com/@elysian.812"
-       target="_blank" rel="noopener">@elysian.812</a>
+    <span>01.</span>
+    <a class="link" href="https://t.me/+KULAQRUM3EIyYzQy" target="_blank">
+      Подписаться на канал
+    </a>
   </div>
+
+  <div class="entry">
+    <span>02.</span>
+    Прочитать правила сообщества.
+  </div>
+
+  <div class="entry">
+    <span>03.</span>
+    <a class="link" href="https://t.me/+EZNh2VZbB8YyNGIy" target="_blank">
+      Заполнить анкету
+    </a>
+  </div>
+
+  <div class="entry">
+    <span>04.</span>
+    Отправить заполненную анкету администратору.
+  </div>
+
+  <div class="entry">
+    <span>05.</span>
+    <a class="link" href="https://t.me/+gwOc3zCSSXMwMzky" target="_blank">
+      Подать заявку в чат
+    </a>
+  </div>
+
+  <p class="note">
+    Пожалуйста, соблюдайте порядок вступления.
+  </p>
 </div>
 
-<footer>ELYSIAN • 2026</footer>
+<footer>ELYSIAN • OFFICIAL COMMUNITY</footer>
 
 </div>
 
