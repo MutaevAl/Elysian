@@ -4,422 +4,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
 <title>ELYSIAN</title>
 
 <style>
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  min-height: 100vh;
-  padding: 25px 18px;
-  background: #080808;
-  color: #e8e8e8;
-  font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: #080808;
+    color: #eeeeee;
+    font-family: Arial, sans-serif;
+    padding: 25px 18px;
 }
 
 .container {
-  max-width: 470px;
-  margin: auto;
-}
-
-header {
-  text-align: center;
-  padding: 55px 0 35px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 35px;
 }
 
 .logo {
-  font-size: 37px;
-  letter-spacing: 9px;
-  font-weight: 400;
-  background: linear-gradient(120deg, #777, #fff, #777);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+    text-align: center;
+    font-size: 35px;
+    letter-spacing: 9px;
+    font-weight: 300;
+    color: #e5e5e5;
+    margin-bottom: 9px;
 }
 
 .subtitle {
-  margin-top: 13px;
-  color: #777;
-  font-size: 9px;
-  letter-spacing: 5px;
-}
-
-.line {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #666, transparent);
-  margin-bottom: 28px;
+    text-align: center;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 45px;
 }
 
 .menu {
-  display: grid;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
 }
 
 .item {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  gap: 16px;
-  background: #121212;
-  border: 1px solid #292929;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: .3s ease;
-  animation: appear .5s ease both;
-  text-decoration: none;
-  color: inherit;
+    width: 100%;
+    padding: 19px 20px;
+    background: linear-gradient(110deg, #171717, #0e0e0e);
+    border: 1px solid #333;
+    border-radius: 12px;
+    color: #dedede;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s ease;
+    animation: appear 0.6s ease both;
 }
 
 .item:hover {
-  border-color: #999;
-  background: #1b1b1b;
-  transform: translateY(-3px);
-}
-
-.number {
-  color: #777;
-  font-size: 12px;
-}
-
-.info {
-  flex: 1;
-}
-
-.name {
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-.desc {
-  color: #777;
-  font-size: 10px;
-  margin-top: 7px;
-}
-
-.arrow {
-  color: #888;
-  font-size: 21px;
+    background: #242424;
+    border-color: #999;
+    transform: translateY(-2px);
 }
 
 .page {
-  display: none;
-  margin-top: 20px;
-  padding: 22px;
-  background: #121212;
-  border: 1px solid #303030;
-  border-radius: 10px;
-  animation: appear .35s ease;
+    display: none;
+    animation: appear 0.4s ease;
 }
 
 .page.active {
-  display: block;
-}
-
-.page h2 {
-  margin: 27px 0;
-  font-size: 17px;
-  font-weight: 400;
-  letter-spacing: 3px;
-}
-
-.label {
-  color: #777;
-  font-size: 9px;
-  letter-spacing: 2px;
-  margin: 23px 0 10px;
-}
-
-.entry {
-  padding: 14px 0;
-  border-bottom: 1px solid #292929;
-  color: #c5c5c5;
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-.entry:last-child {
-  border-bottom: none;
-}
-
-.entry span {
-  color: #777;
-  margin-right: 9px;
+    display: block;
 }
 
 .back {
-  padding: 9px 14px;
-  background: transparent;
-  border: 1px solid #555;
-  border-radius: 6px;
-  color: #ccc;
-  font-size: 11px;
-  cursor: pointer;
-  transition: .3s;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    cursor: pointer;
 }
 
-.back:hover {
-  border-color: #ddd;
-  color: white;
+h2 {
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    color: #e5e5e5;
+}
+
+.content {
+    color: #bcbcbc;
+    font-size: 14px;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.content strong {
+    color: #fff;
 }
 
 .link {
-  display: inline-block;
-  color: #ddd;
-  text-decoration: none;
-  border-bottom: 1px solid #777;
-  padding-bottom: 3px;
-  transition: .3s;
+    display: block;
+    margin-top: 14px;
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 9px;
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
 }
 
 .link:hover {
-  color: white;
-  border-color: white;
+    background: #242424;
+    border-color: #aaa;
 }
 
-.note {
-  color: #777;
-  font-size: 11px;
-  line-height: 1.7;
-  margin-top: 22px;
+.number {
+    color: #888;
+    margin-right: 8px;
 }
 
-footer {
-  text-align: center;
-  margin-top: 50px;
-  padding-bottom: 20px;
-  color: #555;
-  font-size: 9px;
-  letter-spacing: 4px;
+.footer {
+    text-align: center;
+    color: #555;
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-top: 55px;
 }
 
 @keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(9px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<header>
-  <div class="logo">ELYSIAN</div>
-  <div class="subtitle">OFFICIAL COMMUNITY</div>
-</header>
+<div id="home">
+    <div class="logo">ELYSIAN</div>
+    <div class="subtitle">WELCOME TO OUR WORLD</div>
 
-<div class="line"></div>
+    <div class="menu">
+        <button class="item" onclick="openPage('rules')">01 — ПРАВИЛА</button>
+        <button class="item" onclick="openPage('cleaning')">02 — ЧИСТКА</button>
+        <button class="item" onclick="openPage('admins')">03 — АДМИНИСТРАЦИЯ</button>
+        <button class="item" onclick="openPage('join')">04 — КАК ПОПАСТЬ В ЧАТ</button>
 
-<!-- ГЛАВНОЕ МЕНЮ -->
-<div class="menu" id="menu">
+        <a class="item" href="https://www.tiktok.com/@elysian.812" target="_blank">
+            05 — TIKTOK
+        </a>
 
-  <div class="item" onclick="openPage('rules')">
-    <span class="number">01</span>
-    <div class="info">
-      <div class="name">ПРАВИЛА</div>
-      <div class="desc">Основные положения</div>
+        <a class="item" href="https://t.me/poslaniya?start=ooCcJhA0" target="_blank">
+            06 — АНОНИМНЫЕ СООБЩЕНИЯ
+        </a>
     </div>
-    <span class="arrow">›</span>
-  </div>
-
-  <div class="item" onclick="openPage('cleaning')">
-    <span class="number">02</span>
-    <div class="info">
-      <div class="name">ЧИСТКА</div>
-      <div class="desc">Нормы и ресты</div>
-    </div>
-    <span class="arrow">›</span>
-  </div>
-
-  <div class="item" onclick="openPage('admins')">
-    <span class="number">03</span>
-    <div class="info">
-      <div class="name">АДМИНИСТРАЦИЯ</div>
-      <div class="desc">Состав команды</div>
-    </div>
-    <span class="arrow">›</span>
-  </div>
-
-  <a class="item" href="https://www.tiktok.com/@elysian.812" target="_blank" rel="noopener">
-    <span class="number">04</span>
-    <div class="info">
-      <div class="name">TIKTOK</div>
-      <div class="desc">Наш аккаунт</div>
-    </div>
-    <span class="arrow">›</span>
-  </a>
-
-  <a class="item" href="https://t.me/poslaniya?start=ooCcJhA0" target="_blank" rel="noopener">
-    <span class="number">05</span>
-    <div class="info">
-      <div class="name">АНОНИМНЫЕ СООБЩЕНИЯ</div>
-      <div class="desc">Отправить сообщение</div>
-    </div>
-    <span class="arrow">›</span>
-  </a>
-
-  <div class="item" onclick="openPage('join')">
-    <span class="number">06</span>
-    <div class="info">
-      <div class="name">КАК ПОПАСТЬ В ЧАТ</div>
-      <div class="desc">Инструкция для вступления</div>
-    </div>
-    <span class="arrow">›</span>
-  </div>
-
 </div>
 
-<!-- ПРАВИЛА -->
-<div class="page" id="rules">
-  <button class="back" onclick="home()">← НАЗАД</button>
-  <h2>ПРАВИЛА</h2>
+<div id="rules" class="page">
+    <button class="back" onclick="home()">← НАЗАД</button>
+    <h2>ПРАВИЛА</h2>
+    <div class="content">
+1. Уважайте участников и администрацию.
 
-  <div class="label">ОСНОВНЫЕ ПОЛОЖЕНИЯ</div>
+2. Оскорбления, травля и провокации запрещены.
 
-  <div class="entry"><span>01.</span> Уважайте участников и администрацию.</div>
-  <div class="entry"><span>02.</span> Оскорбления, травля и провокации запрещены.</div>
-  <div class="entry"><span>03.</span> Политика, религия и национальные конфликты не обсуждаются.</div>
-  <div class="entry"><span>04.</span> Личные конфликты решайте вне общего чата.</div>
-  <div class="entry"><span>05.</span> Спам и навязчивая реклама запрещены.</div>
-  <div class="entry"><span>06.</span> Не публикуйте чужую личную информацию.</div>
-  <div class="entry"><span>07.</span> Соблюдайте решения администрации.</div>
+3. Политика, религия и национальные конфликты не обсуждаются.
 
-  <p class="note">
-    Нарушение правил может повлечь предупреждение, мут или бан.
-  </p>
+4. Личные конфликты решайте вне общего чата.
+
+5. Спам и навязчивая реклама запрещены.
+
+6. Не публикуйте чужую личную информацию.
+
+7. Соблюдайте решения администрации.
+
+<br>
+Нарушение правил может повлечь предупреждение, мут или бан.
+    </div>
 </div>
 
-<!-- ЧИСТКА -->
-<div class="page" id="cleaning">
-  <button class="back" onclick="home()">← НАЗАД</button>
-  <h2>ЧИСТКА</h2>
+<div id="cleaning" class="page">
+    <button class="back" onclick="home()">← НАЗАД</button>
+    <h2>ЧИСТКА</h2>
+    <div class="content">
+В первую очередь — <strong>норма 40/280.</strong>
 
-  <div class="label">НОРМА</div>
-  <div class="entry">40/280</div>
+Чистка проводится каждое воскресенье в <strong>19:00 по МСК.</strong>
 
-  <div class="label">РАСПИСАНИЕ</div>
-  <div class="entry">Каждое воскресенье в 19:00 по МСК.</div>
+3 преда — автоматический бан.
 
-  <div class="label">НАРУШЕНИЯ</div>
-  <div class="entry">3 преда — автоматический бан.</div>
-  <div class="entry">Неактивность 3 дня — кик.</div>
+Неактивность 3 дня — кик.
 
-  <div class="label">РЕСТ</div>
-  <div class="entry">Рест можно брать только у владельца, предварительно уточнив все детали и указав причину.</div>
-  <div class="entry">Максимальная продолжительность — 2 недели.</div>
-  <div class="entry">Норма для рестников отсутствует.</div>
+Рест можно брать только у влд, предварительно уточнив все детали и указав причину.
+
+Максимальная продолжительность реста — <strong>2 недели.</strong>
+
+Для рестников норма отсутствует.
+    </div>
 </div>
 
-<!-- АДМИНИСТРАЦИЯ -->
-<div class="page" id="admins">
-  <button class="back" onclick="home()">← НАЗАД</button>
-  <h2>АДМИНИСТРАЦИЯ</h2>
+<div id="admins" class="page">
+    <button class="back" onclick="home()">← НАЗАД</button>
+    <h2>АДМИНИСТРАЦИЯ</h2>
 
-  <div class="label">ВЛАДЕЛЕЦ</div>
-  <div class="entry">
+    <div class="content">
+Владелец проекта:
+    </div>
     <a class="link" href="https://t.me/vezsxm" target="_blank">@vezsxm</a>
-  </div>
 
-  <div class="label">АДМИНИСТРАТОРЫ ПО НЬЮ</div>
-  <div class="entry">
+    <div class="content" style="margin-top:25px;">
+Администраторы по нью:
+    </div>
     <a class="link" href="https://t.me/shissad" target="_blank">@shissad</a>
-  </div>
-  <div class="entry">
     <a class="link" href="https://t.me/Amu1nva" target="_blank">@Amu1nva</a>
-  </div>
 
-  <div class="label">МОНТАЖЁР</div>
-  <div class="entry">
-    <a class="link" href="https://t.me/Amg212MERSALI" target="_blank">
-      Amg212MERSALI
-    </a>
-  </div>
+    <div class="content" style="margin-top:25px;">
+Монтаж:
+    </div>
+    <a class="link" href="https://t.me/Amg212MERSALI" target="_blank">Связаться</a>
 </div>
 
-<!-- КАК ПОПАСТЬ В ЧАТ -->
-<div class="page" id="join">
-  <button class="back" onclick="home()">← НАЗАД</button>
-  <h2>КАК ПОПАСТЬ В ЧАТ</h2>
+<div id="join" class="page">
+    <button class="back" onclick="home()">← НАЗАД</button>
+    <h2>КАК ПОПАСТЬ В ЧАТ</h2>
 
-  <div class="label">ПОРЯДОК ВСТУПЛЕНИЯ</div>
+    <div class="content">
+Чтобы стать частью ELYSIAN, выполни несколько шагов:
 
-  <div class="entry">
-    <span>01.</span>
+<span class="number">01.</span> Подпишись на наш канал.
+    </div>
     <a class="link" href="https://t.me/+KULAQRUM3EIyYzQy" target="_blank">
-      Подписаться на канал
+        ПЕРЕЙТИ В КАНАЛ
     </a>
-  </div>
 
-  <div class="entry">
-    <span>02.</span>
-    Прочитать правила сообщества.
-  </div>
+    <div class="content" style="margin-top:22px;">
+<span class="number">02.</span> Ознакомься с правилами проекта.
 
-  <div class="entry">
-    <span>03.</span>
+<span class="number">03.</span> Заполни анкету.
+    </div>
     <a class="link" href="https://t.me/+EZNh2VZbB8YyNGIy" target="_blank">
-      Заполнить анкету
+        КАНАЛ С АНКЕТАМИ
     </a>
-  </div>
 
-  <div class="entry">
-    <span>04.</span>
-    Отправить заполненную анкету администратору.
-  </div>
+    <div class="content" style="margin-top:22px;">
+<span class="number">04.</span> Отправь заполненную анкету администратору.
 
-  <div class="entry">
-    <span>05.</span>
+<span class="number">05.</span> Подай заявку на вступление в чат.
+    </div>
     <a class="link" href="https://t.me/+gwOc3zCSSXMwMzky" target="_blank">
-      Подать заявку в чат
+        ПЕРЕЙТИ В ЧАТ
     </a>
-  </div>
-
-  <p class="note">
-    Пожалуйста, соблюдайте порядок вступления.
-  </p>
 </div>
 
-<footer>ELYSIAN • OFFICIAL COMMUNITY</footer>
+<div class="footer">ELYSIAN © 2026</div>
 
 </div>
 
 <script>
 function openPage(id) {
-  document.getElementById('menu').style.display = 'none';
+    document.getElementById('home').style.display = 'none';
 
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
 
-  document.getElementById(id).classList.add('active');
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function home() {
-  document.getElementById('menu').style.display = 'grid';
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
 
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+    document.getElementById('home').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 
